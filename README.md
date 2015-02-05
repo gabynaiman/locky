@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-    locker = Locky.new :indentifier
+    locker = Locky.new :name
 
     locker.lock :process_name do
       ...
