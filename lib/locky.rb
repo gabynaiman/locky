@@ -12,9 +12,11 @@ class Locky
   def lock(process)
     raise Error, "#{name} already locked by #{locked_by}" if locked?
     adapter[name] = process
-    yield
-  ensure
-    adapter.delete name
+    begin
+      yield
+    ensure
+      adapter.delete name
+    end
   end
 
   def locked?
